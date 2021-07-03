@@ -1,19 +1,16 @@
 'use strict';
 
-const money = 70000,
-    income = 'Фриланс',
-    addExpenses = 'Интернет, Такси, Квартира',
-    deposit = false,
-    mission = 200000,
-    period = 7,
-    budgetDay = money / 30;
+const num = 266219;
 
+const arrNum = Array.from(String(num), Number);
+//const arrNum = Array.from(num.toString());
 
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
-console.log(addExpenses.length);
-console.log(`Период равен ${period} месяцев`);
-console.log(`Цель заработать ${mission} рублей`);
-console.log(addExpenses.toLowerCase().split());
-console.log(budgetDay.toFixed());
+let multiplyNum = 1;
+
+for (let i = 0; i < arrNum.length; i++) {
+    multiplyNum *= arrNum[i];
+}
+
+multiplyNum += multiplyNum ** 3;
+
+console.log(multiplyNum.toString().slice(0, 2));
