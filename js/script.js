@@ -1,35 +1,48 @@
 'use strict';
 
-// Первое задание
-let lang = 'en';
+const money = +prompt('Ваш месячный доход?'),
+    income = 'Фриланс',
+    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'),
+    deposit = confirm('Есть ли у вас депозит в банке?'),
+    mission = 200000,
+    period = 7,
+    expenses1 = prompt('Введите обязательную статью расходов?'),
+    amount1 = +prompt('Во сколько это обойдется?'),
+    expenses2 = prompt('Введите обязательную статью расходов?'),
+    amount2 = +prompt('Во сколько это обойдется?'),
+    getExpensesMonth = function() {
+        return amount1 + amount2;
+    },
+    getAccumulatedMonth = function() {
+        return money - getExpensesMonth();
+    },
+    accumulatedMonth = getAccumulatedMonth(),
+    getTargetMonth = function() {
+        return Math.ceil(mission / accumulatedMonth);
+    },
+    budgetDay = Math.floor(accumulatedMonth / 30),
+    showTypeOf = function(data) {
+        return typeof data;
+    };
 
-if (lang === 'ru') {
-    console.log(['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']);
-} else if (lang === 'en') {
-    console.log(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
-} else {
-    console.log('Укажите верное значение');
-}
+console.log(showTypeOf(money));
+console.log(showTypeOf(income));
+console.log(showTypeOf(deposit));
+console.log('Расходы за месяц: ' + getExpensesMonth());
+console.log(addExpenses.toLowerCase().split(', '));
+console.log('Цель будет достигнута за: ' + getTargetMonth() + ' месяцев');
+console.log('Бюджет на день: ' + budgetDay);
 
-switch (lang) {
-    case 'ru':
-        console.log(['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']);
-        break;
-    case 'en':
-        console.log(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
-        break;
-    default:
-        console.log('Укажите верное значение');
-        break;
-}
-
-let weekDay = {
-    ru: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
-    en: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+const getStatusIncome = function() {
+    if (budgetDay >= 1200) {
+        return 'У вас высокий уровень дохода';
+    } else if (600 <= budgetDay && budgetDay < 1200) {
+        return 'У вас средний уровень дохода';
+    } else if (0 < budgetDay && budgetDay < 600) {
+        return 'К сожалению у вас уровень дохода ниже среднего';
+    } else if (budgetDay <= 0) {
+        return 'Что то пошло не так';
+    }
 };
-console.log(weekDay[lang]);
 
-// Второе задание
-let namePerson = 'Максим',
-    result = namePerson === 'Артем' ? console.log('директор') :
-    namePerson === 'Максим' ? console.log('преподаватель') : console.log('студент');
+console.log(getStatusIncome());
