@@ -5,7 +5,7 @@ const arr = [];
 arr.push('258', '354', '681', '445', '217', '905', '759');
 
 console.log(arr.filter(function(num) {
-    return num.includes(['2', '4'][0]);
+    return num.includes(['2', '4'][0]) || num.includes(['4'][0];
 }));
 
 let num = 100;
