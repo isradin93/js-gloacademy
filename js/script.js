@@ -43,7 +43,7 @@ const appData = {
         }
     },
     getExpensesMonth: function() {
-        for (let key in appData.expenses) {
+        for (const key in appData.expenses) {
             appData.expensesMonth = appData.expenses[key];
         }
     },
@@ -52,7 +52,7 @@ const appData = {
         appData.budgetDay = Math.floor(appData.budgetMonth / 30);
     },
     getTargetMonth: function() {
-        let targetMonthResult = Math.ceil(appData.mission / appData.budgetMonth);
+        const targetMonthResult = Math.ceil(appData.mission / appData.budgetMonth);
         if (targetMonthResult <= 0) {
             return 'Цель не будет достигнута';
         } else {
@@ -83,6 +83,6 @@ console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
 console.log('');
 console.log('Наша программа включает в себя данные: ');
-for (let key in appData) {
+for (const key in appData) {
     console.log(key + ': ' + appData[key]);
 }
