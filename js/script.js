@@ -22,16 +22,17 @@ start();
 let expenses = [];
 
 const getExpensesMonth = function() {
-    let sumData;
     let sum = 0;
     for (let i = 0; i < 2; i++) {
         expenses[i] = prompt('Введите обязательную статью расходов?');
 
+        let cashExpenses;
         do {
-            sumData = prompt('Во сколько это обойдется?');
-        } while (!isNumber(sumData));
+            cashExpenses = prompt('Во сколько это обойдется?');
+        }
+        while (!isNumber(cashExpenses));
 
-        sum += +sumData;
+        sum += +cashExpenses;
     }
     return sum;
 };
