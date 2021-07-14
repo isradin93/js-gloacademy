@@ -1,15 +1,40 @@
 'use strict';
 
+const salaryAmount = document.querySelector('.salary-amount'),
+    incomeTitle = document.querySelector('.income-title'),
+    incomeAmount = document.querySelector('.income-amount'),
+    incomeAddBtn = document.getElementsByTagName('button')[0],
+    expensesAddBtn = document.getElementsByTagName('button')[1],
+    additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
+    expensesTitle = document.querySelector('.expenses-title'),
+    expensesAmount = document.querySelector('.expenses-amount'),
+    depositCheckbox = document.querySelector('#deposit-check'),
+    depositBank = document.querySelectorAll('.deposit-bank'),
+    depositAmount = document.querySelector('.deposit-amount'),
+    depositPercent = document.querySelector('.deposit-percent'),
+    targetAmount = document.querySelector('.target-amount'),
+    periodSelect = document.querySelector('.period-select'),
+    budgetMonthValue = document.getElementsByClassName('budget_month-value'),
+    budgetDayValue = document.getElementsByClassName('budget_day-value'),
+    expensesMonthValue = document.getElementsByClassName('expenses_month-value'),
+    additionalIncomeValue = document.getElementsByClassName('additional_income-value'),
+    additionalExpensesValue = document.getElementsByClassName('additional_expenses-value'),
+    incomePeriodValue = document.getElementsByClassName('income_period-value'),
+    targetMonthValue = document.getElementsByClassName('target_month-value'),
+    startCalculateBtn = document.getElementById('start'),
+    resetCalculateBtn = document.getElementById('cancel');
+
 const isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-let money,
-    start = function() {
-        do {
-            money = prompt('Ваш месячный доход?');
-        } while (!isNumber(money));
-    };
+let money;
+
+const start = function() {
+    do {
+        money = prompt('Ваш месячный доход?');
+    } while (!isNumber(money));
+};
 
 start();
 
