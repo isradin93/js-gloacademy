@@ -30,21 +30,21 @@ const appData = {
         appData.addExpenses = appData.addExpenses.toLowerCase().split(', ');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
-        let sumData, enterExpensesItem;
-
         for (let i = 0; i < 2; i++) {
-            enterExpensesItem = prompt('Введите обязательную статью расходов?');
+            let itemExpenses = prompt('Введите обязательную статью расходов?');
+
+            let cashExpenses;
 
             do {
-                sumData = prompt('Во сколько это обойдется?');
-            } while (!isNumber(sumData));
+                cashExpenses = prompt('Во сколько это обойдется?');
+            } while (!isNumber(cashExpenses));
 
-            appData.expenses[enterExpensesItem] = +sumData;
+            appData.expenses[itemExpenses] = +cashExpenses;
         }
     },
     getExpensesMonth: function() {
-        for (const key in appData.expenses) {
-            appData.expensesMonth = appData.expenses[key];
+        for (const item in appData.expenses) {
+            appData.expensesMonth = appData.expenses[item];
         }
     },
     getBudget: function() {
@@ -83,6 +83,6 @@ console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
 console.log('');
 console.log('Наша программа включает в себя данные: ');
-for (const key in appData) {
-    console.log(key + ': ' + appData[key]);
+for (const item in appData) {
+    console.log(item + ': ' + appData[item]);
 }
