@@ -1,12 +1,12 @@
 'use strict';
 
 let salaryAmount = document.querySelector('.salary-amount'),
-    incomeTitle = document.querySelector('.income-title'),
-    incomeItems = document.querySelectorAll('.income-items'),
+    //incomeTitle = document.querySelector('.income-title'),
+    incomeItems = document.getElementsByClassName('income-items'),
     incomePlus = document.querySelector('.income_add'),
     additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
-    expensesTitle = document.querySelector('.expenses-title'),
-    expensesItems = document.querySelectorAll('.expenses-items'),
+    //expensesTitle = document.querySelector('.expenses-title'),
+    expensesItems = document.getElementsByClassName('expenses-items'),
     expensesPlus = document.querySelector('.expenses_add'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
     depositCheckbox = document.querySelector('#deposit-check'),
@@ -69,8 +69,8 @@ const appData = {
     addIncomeBlock: function() {
         let cloneIncomeItems = incomeItems[0].cloneNode(true);
         incomeItems[0].after(cloneIncomeItems);
-        incomeItems = document.querySelectorAll('.income-items');
-
+        cloneIncomeItems.children[0].value = '';
+        cloneIncomeItems.children[1].value = '';
         if (incomeItems.length === 3) {
             incomePlus.style.display = 'none';
         }
@@ -78,29 +78,29 @@ const appData = {
     addExpensesBlock: function() {
         let cloneExpensesItems = expensesItems[0].cloneNode(true);
         expensesItems[0].after(cloneExpensesItems);
-        expensesItems = document.querySelectorAll('.expenses-items');
-
+        cloneExpensesItems.children[0].value = '';
+        cloneExpensesItems.children[1].value = '';
         if (expensesItems.length === 3) {
             expensesPlus.style.display = 'none';
         }
     },
     getIncome: function() {
-        incomeItems.forEach(function(item) {
-            let itemIncomes = item.querySelector('.income-title').value;
-            let cashIncomes = item.querySelector('.income-amount').value;
-            if (itemIncomes !== '' && cashIncomes !== '') {
-                appData.income[itemIncomes] = cashIncomes;
+        for (const item of incomeItems) {
+            let itemIncome = item.querySelector('.income-title').value;
+            let cashIncome = item.querySelector('.income-amount').value;
+            if (itemIncome !== '' && cashIncome !== '') {
+                appData.income[itemIncome] = cashIncome;
             }
-        });
+        }
     },
     getExpenses: function() {
-        expensesItems.forEach(function(item) {
-            let itemExpenses = item.querySelector('.expenses-title').value;
-            let cashExpenses = item.querySelector('.expenses-amount').value;
-            if (itemExpenses !== '' && cashExpenses !== '') {
-                appData.expenses[itemExpenses] = cashExpenses;
+        for (const item of expensesItems) {
+            let itemExpense = item.querySelector('.expenses-title').value;
+            let cashExpense = item.querySelector('.expenses-amount').value;
+            if (itemExpense !== '' && cashExpense !== '') {
+                appData.expenses[itemExpense] = cashExpense;
             }
-        });
+        }
     },
     getAddIncome: function() {
         additionalIncomeItem.forEach(function(item) {
