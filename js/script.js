@@ -1,11 +1,11 @@
 'use strict';
 
 let salaryAmount = document.querySelector('.salary-amount'),
-    //incomeTitle = document.querySelector('.income-title'),
+    incomeTitle = document.querySelector('.income-title'),
     incomeItems = document.getElementsByClassName('income-items'),
     incomePlus = document.querySelector('.income_add'),
     additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
-    //expensesTitle = document.querySelector('.expenses-title'),
+    expensesTitle = document.querySelector('.expenses-title'),
     expensesItems = document.getElementsByClassName('expenses-items'),
     expensesPlus = document.querySelector('.expenses_add'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
