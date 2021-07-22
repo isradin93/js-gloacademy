@@ -1,6 +1,6 @@
 'use strict';
 
-let salaryAmount = document.querySelector('.salary-amount'),
+const salaryAmount = document.querySelector('.salary-amount'),
     incomeTitle = document.querySelector('.income-title'),
     incomeItems = document.getElementsByClassName('income-items'),
     incomePlus = document.querySelector('.income_add'),
