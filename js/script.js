@@ -126,7 +126,7 @@ const appData = {
     },
     getExpensesMonth: function() {
         for (const key in appData.expenses) {
-            appData.expensesMonth = +appData.expenses[key];
+            appData.expensesMonth += +appData.expenses[key];
         }
     },
     getBudget: function() {
