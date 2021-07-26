@@ -228,8 +228,8 @@ window.addEventListener('DOMContentLoaded', () => {
             periodSelect.addEventListener('input', function() {
                 periodАmount.textContent = periodSelect.value;
             });
-            startBtn.addEventListener('click', appData.start.bind(appData));
-            resetBtn.addEventListener('click', appData.reset.bind(appData));
+            startBtn.addEventListener('click', this.start.bind(this));
+            resetBtn.addEventListener('click', this.reset.bind(this));
         }
     };
 
