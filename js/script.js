@@ -54,6 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
             textInputs.forEach(input => {
                 input.setAttribute('disabled', 'disabled');
             });
+
             startBtn.style.display = 'none';
             resetBtn.style.display = 'block';
             incomePlus.setAttribute('disabled', 'disabled');
