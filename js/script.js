@@ -134,7 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 if (item !== '') {
                     this.addExpenses.push(item);
                 }
-            }.bind(appData));
+            }, this);
         },
         getIncomeMonth() {
             for (const key in this.income) {
