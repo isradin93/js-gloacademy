@@ -60,7 +60,8 @@ window.addEventListener('DOMContentLoaded', () => {
             resetBtn.style.display = 'block';
             incomePlus.setAttribute('disabled', 'disabled');
             expensesPlus.setAttribute('disabled', 'disabled');
-            periodSelect.setAttribute('disabled', 'disabled');
+            depositCheckbox.setAttribute("disabled", "true");
+            depositBank.setAttribute("disabled", "true");
 
             this.budget = +salaryAmount.value;
 
@@ -81,6 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
             additionalIncomeValue.value = this.addIncome.join(', ');
             additionalExpensesValue.value = this.addExpenses.join(', ');
             targetMonthValue.value = this.getTargetMonth();
+            incomePeriodValue.value = this.calcPeriod();
             periodSelect.addEventListener('input', () => {
                 incomePeriodValue.value = this.calcPeriod();
             });
@@ -229,6 +231,8 @@ window.addEventListener('DOMContentLoaded', () => {
             resetBtn.style.display = 'none';
             incomePlus.removeAttribute("disabled");
             expensesPlus.removeAttribute("disabled");
+            depositCheckbox.removeAttribute("disabled");
+            depositBank.removeAttribute("disabled");
             periodSelect.removeAttribute("disabled");
             periodSelect.value = 1;
             periodАmount.textContent = periodSelect.value;
